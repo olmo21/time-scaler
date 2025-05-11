@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Time Scaling Calculator</title>
   <style>
     body { font-family: sans-serif; text-align: center; padding: 2em; }
@@ -24,7 +24,6 @@
         document.getElementById("output").innerText = "Inserisci un numero valido maggiore di 0.";
         return;
       }
-
       const c = `${x} × c`;
       const hbar = `1/${x ** 2} × ħ`;
       const G = `1/${x ** 2} × G`;
