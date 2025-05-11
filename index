@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Scaling Calculator</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2em; }
+    input { font-size: 1.2em; padding: 0.5em; width: 100px; }
+    button { font-size: 1.2em; padding: 0.5em 1em; }
+    .results { margin-top: 2em; font-family: monospace; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+  <h1>Time Scaling Calculator</h1>
+  <p>Inserisci un fattore <strong>x</strong> per accelerare il tempo (<em>es: x = 2</em>):</p>
+  <input type="number" id="xInput" value="2" min="0.1" step="0.1">
+  <button onclick="calcola()">Calcola</button>
+  <div class="results" id="output"></div>
+  <script>
+    function calcola() {
+      const x = parseFloat(document.getElementById("xInput").value);
+      if (!x || x <= 0) {
+        document.getElementById("output").innerText = "Inserisci un numero valido maggiore di 0.";
+        return;
+      }
+
+      const c = `${x} × c`;
+      const hbar = `1/${x ** 2} × ħ`;
+      const G = `1/${x ** 2} × G`;
+      const e = `1/√${x} × e ≈ ${(1 / Math.sqrt(x)).toFixed(3)} × e`;
+      const m = `${x} × m`;
+      const tP = `1/${x} × tₚ`;
+
+      document.getElementById("output").innerHTML = `
+        <h2>Risultati:</h2>
+        <pre>
+Velocità della luce (c):       ${c}
+Costante di Planck (ħ):         ${hbar}
+Gravità (G):                    ${G}
+Carica elettrone (e):           ${e}
+Massa (m):                      ${m}
+Tempo di Planck (tₚ):           ${tP}
+        </pre>
+      `;
+    }
+  </script>
+</body>
+</html>
